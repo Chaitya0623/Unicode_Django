@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX</title>
+</head>
+<body>
+    <h1>SpaceX</h1>
+    {% load static %}
+    <table>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+        </form>
+    </table>
+    {% for i in data %}
+    {% if i.name == mission %}
+    <h3>Name: </h3>
+    {{ i.name }}
+    <h3>Manufacturers: </h3>
+    {{ i.manufacturers }}
+    <h3>Id: </h3>
+    {{ i.id }}
+    {% endif %}
+    {% endfor %}
+    <br/>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Manufacturers</th>
+                <th>Id</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in text %}
+            <tr>
+                <td>{{i}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.manufacturers}}</td>
+                <td>{{i.mission_id}}</td>
+                <td>{{i.count}}</td>
+            </tr> 
+        {% endfor%}                         
+        </tbody>
+    </table>
+</body>
+</html>
